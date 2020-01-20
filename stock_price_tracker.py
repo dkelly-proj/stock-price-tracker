@@ -3,9 +3,6 @@
 
 # ### Import modules
 
-# In[ ]:
-
-
 import matplotlib.pyplot as plt
 import numpy as np
 import os
@@ -16,9 +13,6 @@ import yfinance as yf
 
 # ### User selects three stocks to track
 
-# In[ ]:
-
-
 ticker_list = []
 
 for i in range(1, 4):
@@ -26,9 +20,6 @@ for i in range(1, 4):
 
 
 # ### Collect data from past 5 years for selected stocks
-
-# In[ ]:
-
 
 tickers = str(ticker_list[0] + ' ' + ticker_list[1] + ' ' + ticker_list[2])
  
@@ -40,9 +31,6 @@ yahoo_data = yf.download(tickers = tickers,
 
 # ### Organize data into a tidy dataframe for plotting
 
-# In[ ]:
-
-
 df = (yahoo_data
           .filter(items = [(ticker_list[0], 'Close'), (ticker_list[1], 'Close'), (ticker_list[2], 'Close')])
           .reset_index()
@@ -53,9 +41,6 @@ df = (yahoo_data
 
 
 # ### Create plot
-
-# In[ ]:
-
 
 plt.figure(figsize = (20, 10))
 
@@ -83,9 +68,5 @@ plt.savefig(fname = fname)
 
 # ### Open and display plot
 
-# In[ ]:
-
-
 img = Image.open(fname)
 img.show()
-
