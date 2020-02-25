@@ -2,10 +2,6 @@
 # coding: utf-8
 
 # ### Import modules
-
-# In[ ]:
-
-
 import matplotlib.pyplot as plt
 import numpy as np
 import os
@@ -18,10 +14,6 @@ register_matplotlib_converters()
 
 
 # ### User selects stocks to track
-
-# In[ ]:
-
-
 ticker_list = []
 
 while True:
@@ -34,10 +26,6 @@ while True:
 
 
 # ### Collect data from past 5 years for selected stocks
-
-# In[ ]:
-
-
 tickers = ' '.join(ticker_list)
  
 yahoo_data = yf.download(tickers = tickers,
@@ -47,20 +35,12 @@ yahoo_data = yf.download(tickers = tickers,
 
 
 # ### Organize data into a tidy dataframe for plotting
-
-# In[ ]:
-
-
 close_list = []
 
 for i in range(len(ticker_list)):
     close_list.append("Close")
 
 mask = [item for item in zip(ticker_list, close_list)]
-
-
-# In[ ]:
-
 
 df = (yahoo_data
           .filter(items = mask)
@@ -72,10 +52,6 @@ df = (yahoo_data
 
 
 # ### Create plot
-
-# In[ ]:
-
-
 plt.figure(figsize = (20, 10))
 
 plt.style.use('fivethirtyeight')
@@ -96,10 +72,5 @@ plt.savefig(fname = fname)
 
 
 # ### Open and display plot
-
-# In[ ]:
-
-
 img = Image.open(fname)
 img.show()
-
