@@ -1,4 +1,4 @@
-# stock-price-tracker
+# Visualize Stock Prices over the Past Five Years
 
 Clone this repository and run stock_price_tracker.py to see the prices of various stocks over the past five years.
 
